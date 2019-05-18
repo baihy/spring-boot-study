@@ -1,7 +1,9 @@
 package com.baihy;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @projectName: springboot
@@ -11,11 +13,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date: 2019-05-12 11:18
  */
 @SpringBootApplication
+@MapperScan(basePackages = {"com.baihy.mapper"})
+@EnableTransactionManagement
 public class DemoApplication {
 
-
     public static void main(String[] args) {
-
         SpringApplication.run(DemoApplication.class, args);
 
     }
