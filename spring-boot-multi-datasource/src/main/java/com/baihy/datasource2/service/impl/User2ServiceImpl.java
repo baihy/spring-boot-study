@@ -5,6 +5,7 @@ import com.baihy.datasource2.service.User2Service;
 import com.baihy.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @projectName: springboot
@@ -20,6 +21,7 @@ public class User2ServiceImpl implements User2Service {
     private User2Mapper user2Mapper;
 
     @Override
+    @Transactional(transactionManager = "test2DataSourceTransactionManager")
     public int save(User user) {
         return user2Mapper.insert(user);
     }
