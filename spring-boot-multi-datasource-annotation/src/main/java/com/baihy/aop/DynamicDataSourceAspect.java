@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import java.lang.reflect.Method;
 
@@ -21,6 +22,7 @@ import java.lang.reflect.Method;
  */
 @Configuration
 @Aspect
+@Order(value = 0) // 设置切面的优先级，值越小，优先级越高，设置@Order是为了保证数据源切换在开启事务之前
 public class DynamicDataSourceAspect {
 
 

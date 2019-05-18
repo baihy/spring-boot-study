@@ -39,7 +39,7 @@ public class DataSourceConfig {
     }
 
     @Bean(name = "dynamicDataSource")
-    public DataSource dynamicDataSource() {
+    public DynamicDataSource dynamicDataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         Map<Object, Object> dataSourceMap = new HashMap<>();
         dataSourceMap.put("baihy", baihyDataSource());
@@ -69,7 +69,7 @@ public class DataSourceConfig {
      * @return
      */
     @Bean
-    public PlatformTransactionManager transactionManager(DataSource dynamicDataSource) {
+    public PlatformTransactionManager transactionManager(DynamicDataSource dynamicDataSource) {
         return new DataSourceTransactionManager(dynamicDataSource);
     }
 }

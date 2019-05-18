@@ -6,6 +6,7 @@ import com.baihy.mapper.UserMapper;
 import com.baihy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @projectName: springboot
@@ -22,8 +23,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @DataSource("baihy")
+    @Transactional
     public int save1(User user) {
-        return userMapper.insert(user);
+        Integer result = userMapper.insert(user);
+        Integer.parseInt("abc");
+        return result;
     }
 
     @Override
