@@ -3,6 +3,7 @@ package com.baihy.controller;
 import com.baihy.datasource1.service.User1Service;
 import com.baihy.datasource2.service.User2Service;
 import com.baihy.domain.User;
+import com.baihy.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,8 @@ public class UserController {
     @Autowired
     private User2Service user2Service;
 
+    @Autowired
+    private HelloService helloService;
 
     @RequestMapping("/save1")
     public int save1(User user) {
@@ -32,4 +35,11 @@ public class UserController {
     public int save2(User user) {
         return user2Service.save(user);
     }
+
+
+    @RequestMapping("/save")
+    public int save(User user) {
+        return helloService.save(user);
+    }
+
 }

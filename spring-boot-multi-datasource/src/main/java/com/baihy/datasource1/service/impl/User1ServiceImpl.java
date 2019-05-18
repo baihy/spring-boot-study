@@ -29,7 +29,8 @@ public class User1ServiceImpl implements User1Service {
      * @return
      */
     @Override
-    @Transactional(transactionManager = "test1DataSourceTransactionManager")
+    //@Transactional(transactionManager = "test1DataSourceTransactionManager")
+    @Transactional // 开启全局事务之后，就不能指定事务管理器了
     public int save(User user) {
         return user1Mapper.insert(user);
     }

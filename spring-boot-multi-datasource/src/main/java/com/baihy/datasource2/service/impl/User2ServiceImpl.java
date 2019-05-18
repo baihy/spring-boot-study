@@ -21,7 +21,8 @@ public class User2ServiceImpl implements User2Service {
     private User2Mapper user2Mapper;
 
     @Override
-    @Transactional(transactionManager = "test2DataSourceTransactionManager")
+    //@Transactional(transactionManager = "test2DataSourceTransactionManager")
+    @Transactional // 开启全局事务之后，就不能指定事务管理器了
     public int save(User user) {
         return user2Mapper.insert(user);
     }
