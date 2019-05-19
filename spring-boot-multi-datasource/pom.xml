@@ -37,13 +37,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
         <!--使用jta-atomikos管理全局事务-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jta-atomikos</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
