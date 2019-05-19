@@ -22,7 +22,9 @@ public class SpringMain {
         Tomcat tomcatServer = new Tomcat();
         tomcatServer.setPort(8080);
         // 为tomcat添加跟路径, 主要是为了加载静态资源
-        StandardContext context = (StandardContext) tomcatServer.addWebapp("/", SpringMain.class.getClassLoader().getResource("").getPath());
+        //String webRoot = SpringMain.class.getClassLoader().getResource("").getPath();
+        String webRoot = new File("java-springmvc/src/main/webapp").getAbsolutePath();
+        StandardContext context = (StandardContext) tomcatServer.addWebapp("/", webRoot);
         // 禁止重新加载
         context.setReloadable(false);
         // 指定classes文件所在的位置

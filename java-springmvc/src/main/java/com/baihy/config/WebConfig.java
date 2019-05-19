@@ -1,8 +1,11 @@
 package com.baihy.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * @projectName: springboot
@@ -16,4 +19,16 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc // 配置开启springmvc
 public class WebConfig {
     // 从spring5.0开始，就不需要继承WebMvcConfigurerAdapter这个类了。
+
+
+    //配置视图解析器
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/");
+        viewResolver.setSuffix(".jsp");
+        //在页面中，可以使用${}来访问beans
+        viewResolver.setExposeContextBeansAsAttributes(true);
+        return viewResolver;
+    }
 }
