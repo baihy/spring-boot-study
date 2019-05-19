@@ -4,9 +4,13 @@ import com.baihy.annotation.DataSource;
 import com.baihy.domain.User;
 import com.baihy.mapper.UserMapper;
 import com.baihy.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @projectName: springboot
@@ -34,6 +38,15 @@ public class UserServiceImpl implements UserService {
     @DataSource("test")
     public int save2(User user) {
         return userMapper.insert(user);
+    }
+
+
+    @Override
+    @DataSource
+    public PageInfo<User> find(Integer page, Integer pageSize) {
+        PageHelper.startPage(page, pageSize);
+        List<User> users = userMapper.find();
+        return new PageInfo<>(users);
     }
 }
 

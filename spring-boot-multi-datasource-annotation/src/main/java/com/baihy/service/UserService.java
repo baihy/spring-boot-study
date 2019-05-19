@@ -1,6 +1,7 @@
 package com.baihy.service;
 
 import com.baihy.domain.User;
+import com.github.pagehelper.PageInfo;
 
 /**
  * @projectName: springboot
@@ -15,5 +16,8 @@ public interface UserService {
     int save1(User user);
 
     int save2(User user);
+
+
+    PageInfo<User> find(Integer page, Integer pageSize);
 
 }

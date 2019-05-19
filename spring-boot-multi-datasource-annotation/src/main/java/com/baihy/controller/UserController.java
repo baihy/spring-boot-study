@@ -2,6 +2,7 @@ package com.baihy.controller;
 
 import com.baihy.domain.User;
 import com.baihy.service.UserService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,11 @@ public class UserController {
     @RequestMapping("/save2")
     public Integer save2(User user) {
         return userService.save2(user);
+    }
+
+    @RequestMapping("/find")
+    public PageInfo<User> find(Integer page, Integer pageSize) {
+        return userService.find(page, pageSize);
     }
 
 }
