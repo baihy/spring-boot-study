@@ -15,8 +15,7 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index() {
-
-        return "spring boot应用";
+        return "spring boot应用2222";
     }
 
 }
