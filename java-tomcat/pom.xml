@@ -10,7 +10,7 @@
     <!--通过Java代码创建一个tomcat服务器-->
     <packaging>jar</packaging>
 
-    <properties>
+    <properties>    <!--9.0.19版本还会发生访问错误-->
         <tomcat.version>8.5.40</tomcat.version>
     </properties>
 
