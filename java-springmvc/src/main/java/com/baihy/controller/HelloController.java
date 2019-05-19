@@ -19,7 +19,7 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
-    @RequestMapping("/hello")
+    @RequestMapping(value = "/hello", produces = {"application/json;charset=UTF-8"})
     public String sayHello() {
         return helloService.sayHello();
     }
