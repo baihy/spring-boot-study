@@ -7,11 +7,12 @@
     <groupId>com.baihy</groupId>
     <artifactId>java-tomcat</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!--通过Java代码创建一个tomcat服务器-->
     <packaging>jar</packaging>
 
+    <!--通过Java代码创建一个tomcat服务器-->
+
     <properties>    <!--9.0.19版本还会发生访问错误-->
-        <tomcat.version>8.5.40</tomcat.version>
+        <tomcat.version>9.0.19</tomcat.version>
     </properties>
 
     <dependencies>
@@ -26,9 +27,10 @@
             <version>${tomcat.version}</version>
         </dependency>
         <dependency><!--tomcat对jsp的支持-->
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jasper</artifactId>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
             <version>${tomcat.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
